@@ -56,7 +56,7 @@ namespace ApplicationAPBD_6.Controllers
         public ActionResult<Room> CreateRoom(Room room)
         {
             if (!ModelState.IsValid) return ValidationProblem(ModelState);
-            room.Id = Database.DataStore.NextRoomID;
+            room.Id = Database.DataStore.NextRoomId;
             Database.DataStore.Rooms.Add(room);
 
             return CreatedAtAction(nameof(GetById), new { id = room.Id }, room);

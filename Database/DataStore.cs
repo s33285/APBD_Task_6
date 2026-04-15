@@ -15,8 +15,6 @@ namespace ApplicationAPBD_6.Database
 
         };
 
-        public static int NextRoomID => Rooms.Count > 0 ? Rooms.Max(r => r.Id) + 1 : 1;
-
         public static List<Reservation> Reservations { get; } = new()
         {
         new Reservation
@@ -64,5 +62,8 @@ namespace ApplicationAPBD_6.Database
             Status = "cancelled"
         }
         };
+
+        public static int NextRoomId => Rooms.Count > 0 ? Rooms.Max(r => r.Id) + 1 : 1;
+        public static int NextReservationId => Reservations.Count > 0 ? Reservations.Max(r => r.Id) + 1 : 1;
     }
 }
